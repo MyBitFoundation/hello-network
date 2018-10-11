@@ -1,4 +1,4 @@
-var Network = require('.');
+var Network = require('@mybit/network.js');
 var Web3 = require('web3');
 
 (async function() {
