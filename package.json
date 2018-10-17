@@ -4,7 +4,8 @@
   "description": "Examples for using network.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "blockchain": "mybit-network"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/MyBitFoundation/hello-network#readme",
   "dependencies": {
+    "@mybit/chain": "^0.1.7",
     "@mybit/network.js": "^0.0.2",
     "web3": "^1.0.0-beta.36"
   }
