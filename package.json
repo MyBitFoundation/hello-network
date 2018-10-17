@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/MyBitFoundation/hello-network#readme",
   "dependencies": {
-    "@mybit/chain": "^0.1.7",
-    "@mybit/network.js": "^0.0.2",
+    "@mybit/chain": "^0.1.8",
+    "@mybit/network.js": "^0.0.3",
     "web3": "^1.0.0-beta.36"
   }
 }
