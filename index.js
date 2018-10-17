@@ -111,13 +111,24 @@ async function fundCoffee(){
 
   var fundingProgress = await Network.getFundingProgress(assetID);
   console.log('Funding progress: ', fundingProgress);
-  
+
   //Check operator's funds after
   console.log('Operator ether after: ', await web3.eth.getBalance(operatorAddress));
   token = await Network.dividendTokenETH(tokenAddress);
   console.log('Operator assets: ', Number(await token.balanceOf(operatorAddress)));
   console.log('Investor 1 assets: ', Number(await token.balanceOf(accounts[3])));
   console.log('Investor 2 assets: ', Number(await token.balanceOf(accounts[4])));
+
+  console.log('Issuing dividends: 0.01 ETH');
+  console.log('Investor 1 ether before: ', await web3.eth.getBalance(accounts[3]));
+  console.log('Investor 2 ether before: ', await web3.eth.getBalance(accounts[4]));
+  token.issueDividends({from: operatorAddress, value:10000000000000000});
+  console.log('Dividends Issued');
+  await token.withdraw({from: accounts[3]});
+  await token.withdraw({from: accounts[4]});
+  console.log('Investor 1 ether after: ', await web3.eth.getBalance(accounts[3]));
+  console.log('Investor 2 ether after: ', await web3.eth.getBalance(accounts[4]));
+
 }
 
 fundCoffee();
