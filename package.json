@@ -1,6 +1,6 @@
 {
   "name": "@mybit/hello-network",
-  "version": "0.0.5",
+  "version": "0.0.3",
   "description": "Examples for using network.js",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/MyBitFoundation/hello-network#readme",
   "dependencies": {
     "@mybit/chain": "^0.1.8",
-    "@mybit/network.js": "^0.0.3",
+    "@mybit/network.js": "^0.0.4",
     "web3": "^1.0.0-beta.36"
   }
 }
