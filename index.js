@@ -79,15 +79,39 @@ async function fundCoffee(){
   console.log('Operator ID: ', operatorID);
   //Start the crowdsale
   var response = await startCrowdsale();
+
   assetID = response._assetID;
   console.log('Asset ID: ', assetID);
+
   var tokenAddress = response._tokenAddress;
   console.log('Token Address: ', tokenAddress);
+
+  var operator = await Network.getAssetOperator(assetID);
+  console.log('Asset operator: ', operator);
+
+  var fundingGoal = await Network.getFundingGoal(assetID);
+  console.log('Funding goal: ', fundingGoal);
+
+  var timeleft = await Network.getFundingTimeLeft(assetID);
+  console.log('Time left: ', timeleft);
+
   //Check operator's funds before
   console.log('Operator ether before: ', await web3.eth.getBalance(operatorAddress));
+
+  var fundingProgress = await Network.getFundingProgress(assetID);
+  console.log('Funding progress: ', fundingProgress);
+
   //Two users contribute
   await contribute(accounts[3], 30000000000000000);
+
+  var fundingProgress = await Network.getFundingProgress(assetID);
+  console.log('Funding progress: ', fundingProgress);
+
   await contribute(accounts[4], 40000000000000000);
+
+  var fundingProgress = await Network.getFundingProgress(assetID);
+  console.log('Funding progress: ', fundingProgress);
+  
   //Check operator's funds after
   console.log('Operator ether after: ', await web3.eth.getBalance(operatorAddress));
   token = await Network.dividendTokenETH(tokenAddress);
