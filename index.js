@@ -85,22 +85,43 @@ async function fundCoffee(){
 
   var tokenAddress = response._tokenAddress;
   console.log('Token Address: ', tokenAddress);
-
-  var operator = await Network.getAssetOperator(assetID);
-  console.log('Asset operator: ', operator);
-
-  var fundingGoal = await Network.getFundingGoal(assetID);
-  console.log('Funding goal: ', fundingGoal);
+  
+  token = await Network.dividendTokenETH(tokenAddress);
 
   var timeleft = await Network.getFundingTimeLeft(assetID);
   console.log('Time left: ', timeleft);
 
-  //Check operator's funds before
-  console.log('Operator ether before: ', await web3.eth.getBalance(operatorAddress));
+  var fundingGoal = await Network.getFundingGoal(assetID);
+  console.log('Funding goal: ', fundingGoal);
 
   var fundingProgress = await Network.getFundingProgress(assetID);
   console.log('Funding progress: ', fundingProgress);
 
+  var operator = await Network.getAssetOperator(assetID);
+  console.log('Asset operator: ', operator);
+
+  var manager = await Network.getAssetManager(assetID);
+  console.log('Asset manager: ', manager);
+
+  var investors = await Network.getAssetInvestors(assetID);
+  console.log('Asset investors: ', investors);
+
+  //await Network.issueDividends(assetID, operatorAddress, 1000000000000000);
+
+  var crowdsales = await Network.getOpenCrowdsales();
+  console.log('Open crowdsales: ', crowdsales);
+
+  var operatorAssets = await Network.getAssetsByOperator(operatorAddress);
+  console.log('Assets by operator: ', operatorAssets);
+
+  var investorAssets = await Network.getAssetsByInvestor(accounts[3]);
+  console.log('Assets by investor: ', investorAssets);
+
+  var managerAssets = await Network.getAssetsByManager(operatorAddress);
+  console.log('Assets by manager: ', managerAssets);
+
+  //Check operator's funds before
+  console.log('Operator ether before: ', await web3.eth.getBalance(operatorAddress));
   //Two users contribute
   await contribute(accounts[3], 30000000000000000);
 
@@ -112,18 +133,22 @@ async function fundCoffee(){
   var fundingProgress = await Network.getFundingProgress(assetID);
   console.log('Funding progress: ', fundingProgress);
 
+  var crowdsales = await Network.getOpenCrowdsales();
+  console.log('Open crowdsales: ', crowdsales);
+
   //Check operator's funds after
   console.log('Operator ether after: ', await web3.eth.getBalance(operatorAddress));
-  token = await Network.dividendTokenETH(tokenAddress);
   console.log('Operator assets: ', Number(await token.balanceOf(operatorAddress)));
   console.log('Investor 1 assets: ', Number(await token.balanceOf(accounts[3])));
   console.log('Investor 2 assets: ', Number(await token.balanceOf(accounts[4])));
 
-  console.log('Issuing dividends: 0.01 ETH');
+  console.log('Issuing dividends: 0.01 ETH...');
   console.log('Investor 1 ether before: ', await web3.eth.getBalance(accounts[3]));
   console.log('Investor 2 ether before: ', await web3.eth.getBalance(accounts[4]));
-  token.issueDividends({from: operatorAddress, value:10000000000000000});
-  console.log('Dividends Issued');
+
+  await Network.issueDividends(assetID, operatorAddress, 10000000000000000);
+
+  console.log('Dividends Issued...');
   await token.withdraw({from: accounts[3]});
   await token.withdraw({from: accounts[4]});
   console.log('Investor 1 ether after: ', await web3.eth.getBalance(accounts[3]));
