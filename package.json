@@ -1,6 +1,6 @@
 {
   "name": "@mybit/hello-network",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Examples for using network.js",
   "main": "index.js",
   "scripts": {
