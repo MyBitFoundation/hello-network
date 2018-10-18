@@ -14,6 +14,8 @@ Your local MyBit Chain can be easily installed via yarn . To install all depende
 yarn blockchain
 ```
 
+In case you don't have yarn installed and need instructions how to use, follow instructions [here](https://www.npmjs.com/package/yarn). 
+
 ## **How do I start MyBit Chain?**
 
 \*\*\*\*

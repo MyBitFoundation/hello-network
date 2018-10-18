@@ -6,6 +6,8 @@
 
 This hello world example will get you familiarised interacting with MyBit protocol smart contracts using basic web development knowledge.
 
+Our hello world mimics a successful crowdsale to buy coffees. 
+
 ## Component dependencies
 
 To run a "hello world", it is good practice to understand the underlying components. Hello-network rely on deploying in local both **@mybit/chain** and **@mybit/network.js**
