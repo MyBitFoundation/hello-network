@@ -34,5 +34,5 @@ Once you run the above, your terminal output should look like this:
 
 ![Hello-network example](.gitbook/assets/screen-shot-2018-10-18-at-4.34.54-pm.png)
 
-In the following sessions, we will explain in detail how to set up the components to run your "hello world" and explain step by step through an example the Javascript class/API  used to interact with MyBit Network SDK smart contracts. 
+In the following sessions, we will explain in more detail how to set up the components to run your "hello world" and explain step-by-step through our `~/hello-network/index.js`example the Javascript class/API  used to interact with MyBit Network SDK smart contracts. 
 
