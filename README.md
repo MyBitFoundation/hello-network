@@ -1,14 +1,10 @@
----
-description: >-
-  This hello world example will get you familiarised interacting with MyBit
-  protocol smart contracts using basic web development knowledge.
----
-
 # Hello World Tutorial
 
 ## Hello-Network
 
 🔷 A hello world example for the MyBit Network
+
+This hello world example will get you familiarised interacting with MyBit protocol smart contracts using basic web development knowledge.
 
 ## Component dependencies
 
