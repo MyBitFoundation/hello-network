@@ -2,11 +2,21 @@
 
 ## What is MyBit Chain?
 
+
+
 ## Why would I use MyBit Chain?
 
 ## How do I install MyBit Chain?
 
+Your local MyBit Chain can be easily installed via yarn . To install all dependencies within your project run:  
+
+```text
+yarn blockchain
+```
+
 ## **How do I start MyBit Chain?**
+
+\*\*\*\*
 
 ## **On what port does MyBit Chain run?**
 
