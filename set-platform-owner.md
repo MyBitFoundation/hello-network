@@ -1,6 +1,6 @@
 # Set a platform owner
 
-## Who is the platform owner and does he do?
+## Who is the platform owner and what does he do?
 
 The platform owner is the entity responsible for running the distributed wealth application using MyBit protocol. In reality, the platform owner is responsible for adding operators to the platform and setting high level upgrades and changes to the platform. 
 

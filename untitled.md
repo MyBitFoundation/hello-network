@@ -1,6 +1,6 @@
 # Set an operator
 
-## Who is the operator and does he do?
+## Who is the operator and what does he do?
 
 The operator is the entity mainly responsible for producing, delivering and installing the asset. The operator receives the crowdsale funds in exchange for producing the asset. In our case, the operator receives funds to deliver coffees to investors that signed up to our platform. 
 

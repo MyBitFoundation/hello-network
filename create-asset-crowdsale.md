@@ -2,7 +2,7 @@
 
 ## What is an asset crowdsale?
 
-In our "hello world" example, creating an asset crowdsale is the equivalent of setting up an account where everyone can deposit funds to later finance the asset. A crowdsale has a set of terms defined at its start such as: 
+In our "hello world" example, creating an asset crowdsale is the equivalent of setting up an account where everyone can deposit funds to later [finance the asset](https://developer.mybit.io/hello-network/fund-an-asset-crowdsale). A crowdsale has a set of terms defined at its start such as: 
 
 * Crowdsale duration
 * Funding required to be raised
