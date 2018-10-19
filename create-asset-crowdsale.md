@@ -11,7 +11,7 @@ In our "hello world" example, creating an asset crowdsale is the equivalent of s
 * Operator responsible for delivering asset
 * Account \(i.e. address\) to receive deposits
 
-## Starting a crowdsale for ~~coffees~~
+## Starting a crowdsale for a coffee machine
 
 To initiate the crowdsale, our application sets up an asynchronous `function startCrowdsale()` . Our application uses MyBit APIs and node.js network.js library to interact with the local instance of MyBit smart contracts deployed on the local blockchain.  We use await syntax to interact asynchronously with the chain.
 
@@ -56,7 +56,7 @@ Then, the application will set a variable `response` and pass a `createAsset()` 
   });  
 ```
 
-It will return a object response, representing the start of the start crowdsale. 
+The function returns a response object, representing the start of the start crowdsale, which contains \_assetID, \_assetOperator, \_assetURI, and \_tokenAddress.
 
 ```javascript
     return response;
