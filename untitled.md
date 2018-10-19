@@ -1,10 +1,10 @@
 # Set operator
 
-In this simple "hello world" example we are setting the operator to be the same entity as the broker. In reality, these roles can be played by different entities. See roles in the MyBit network SDK. 
+In this simple "hello world" example we are setting the operator to be the same entity as the broker. In reality, these roles can be played by different entities. See [roles in the MyBit network SDK](https://developer.mybit.io/network/#roles). 
 
 ### Get list of accounts 
 
-Set a `const` to get a list of accounts controlled by the node. It uses the Web3 api to return an array of ethereum addresses. 
+Set a `const` to get a list of accounts controlled by the node. It uses the Web3 API to return an array of ethereum addresses. 
 
 ```javascript
 const accounts = await web3.eth.getAccounts()
@@ -69,8 +69,5 @@ Under the hood, setting up the operator involves interacting with `network.js` a
 
 
 
-Need to explain
 
-* web3
-* network.api - node.js library to interact with SDK - var ContractArtifacts.API
-* 
+
