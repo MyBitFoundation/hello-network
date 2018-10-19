@@ -4,13 +4,15 @@ In this simple "hello world" example we are setting the operator to be the same 
 
 ### Get list of accounts 
 
-
+Set a `const` to get a list of accounts controlled by the node. It uses the Web3 api to return an array of ethereum addresses. 
 
 ```javascript
 const accounts = await web3.eth.getAccounts()
 ```
 
 ### Assign an account to an operator
+
+Assign the second address in the array to be the operatorAddress.
 
 ```javascript
 const [platformOwner, operatorAddress] = accounts
@@ -64,8 +66,6 @@ Only the application  returns the set ID value for the operator in the platform.
 ```
 
 Under the hood, setting up the operator involves interacting with `network.js` and the APIs to interact with MyBit SDK contracts.  
-
-
 
 
 
