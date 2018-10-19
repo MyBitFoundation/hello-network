@@ -51,65 +51,6 @@ This `fundCoffee()` function provides a live example end to end of an investment
 
 #### Examples: 
 
-{% tabs %}
-{% tab title="First Tab" %}
-Set operator
-
-```javascript
-operatorID = await setOperator();
-    console.log('Operator ID: ', operatorID);
-```
-
-Start crowdsale
-
-```javascript
-    var response = await startCrowdsale();
-```
-
-Get time left to fund in the crowdsale
-
-```javascript
-var timeleft = await Network.getFundingTimeLeft(assetID);
-console.log('Time left: ', timeleft);
-```
-
-Get crwodsale funding goal
-
-```javascript
-var fundingGoal = await Network.getFundingGoal(assetID);
-console.log('Funding goal: ', fundingGoal);
-```
-
-Two investors contribute to asset crowdsale
-
-```javascript
-await contribute(accounts[3], 30000000000000000);
-```
-
-```javascript
-await contribute(accounts[4], 40000000000000000);
-```
-
-Operator address balance **before** investments 
-
-```javascript
-console.log('Operator ether before: ', await web3.eth.getBalance(
-      operatorAddress));
-```
-
-Operator address balance **after** investments
-
-```javascript
-console.log('Operator ether after: ', await web3.eth.getBalance(
-  operatorAddress));
-```
-{% endtab %}
-
-{% tab title="Second Tab" %}
-
-{% endtab %}
-{% endtabs %}
-
 Set operator
 
 ```javascript
