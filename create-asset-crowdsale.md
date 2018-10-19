@@ -38,14 +38,16 @@ Creates a variable `token address` representing the asset account \(i.e. address
 var tokenAddress = await api.getAssetAddress(id);
 ```
 
-### Approve burn
+### Create asset and set asset crowdsale terms
+
+First, our "hello world" application will do a validation on the asset address \(i.e. token address\) to verify if the asset crowdsale has already started. If not started, it will first get approval from the operator address to burn crowdsale tokens in case of negligence from operator or failure to finalise crowdsale within terms.   
 
 ```javascript
 if (tokenAddress == '0x0000000000000000000000000000000000000000') {
       await Network.approveBurn(operatorAddress);
 ```
 
-### Create asset and set asset crowdsale terms
+Then, 
 
 ```javascript
   var response = await Network.createAsset({
@@ -55,8 +57,7 @@ if (tokenAddress == '0x0000000000000000000000000000000000000000') {
     amountToRaise: 70000000000000000, //about $20 CAD
     brokerPercent: 0,
     broker: operatorAddress //operator is also broker
-  });
-  
+  });  
 ```
 
 
