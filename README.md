@@ -6,7 +6,7 @@
 
 This hello world example will get you familiarised interacting with MyBit protocol smart contracts using basic web development knowledge.
 
-Our hello world mimics a successful crowdsale to buy coffees. 
+Our hello world mimics a successful crowdsale to buy a coffee machine for a coffee shop. With the revenue generated from coffees sold, crowsale investors receive a return on their investment. 
 
 ## Component dependencies
 

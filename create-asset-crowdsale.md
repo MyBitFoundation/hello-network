@@ -2,18 +2,18 @@
 
 ## What is an asset crowdsale?
 
-In our "hello world" example, creating an asset crowdsale is the equivalent of setting up an account where everyone can deposit funds to later [finance the asset](https://developer.mybit.io/hello-network/fund-an-asset-crowdsale). A crowdsale has a set of terms defined at its start such as:
-
-{% page-ref page="fund-an-asset-crowdsale.md" %}
+In our "hello world" example, creating an asset crowdsale is the equivalent of setting up an account where everyone can deposit funds to later [finance our asset](https://developer.mybit.io/hello-network/fund-an-asset-crowdsale) i.e. coffee machine.  A crowdsale has a set of terms defined at its start such as:
 
 * Crowdsale duration
 * Funding required to be raised
 * Operator responsible for delivering asset
 * Account \(i.e. address\) to receive deposits
 
+{% page-ref page="fund-an-asset-crowdsale.md" %}
+
 ## Starting a crowdsale for a coffee machine
 
-To initiate the crowdsale, our application sets up an asynchronous `function startCrowdsale()` . Our application uses MyBit APIs and node.js network.js library to interact with the local instance of MyBit smart contracts deployed on the local blockchain.  We use await syntax to interact asynchronously with the chain.
+To initiate the crowdsale, our application sets up an asynchronous `function startCrowdsale()` . Our application uses MyBit APIs and node.js network.js library to interact with the local instance of MyBit smart contracts deployed on the local blockchain.  We use await syntax to interact asynchronously with the blockchain.
 
 Within our function our application will generate the asset ID, add an account \(i.e. token address\) associated with the asset and then actually create the asset including the terms for its funding. 
 
