@@ -1,8 +1,8 @@
-# Set operator
+# Set an operator
 
 ## Who is the operator and does he do?
 
-The operator is the entity mainly responsible for producing, delivering and installing the asset. The operator receives the crowdsale funds in exchange for producing the asset. In our case, the operator receives funds to deliver coffees to investors in a platform. 
+The operator is the entity mainly responsible for producing, delivering and installing the asset. The operator receives the crowdsale funds in exchange for producing the asset. In our case, the operator receives funds to deliver coffees to investors that signed up to our platform. 
 
 In this simple "hello world" example we are setting the operator to be the same entity as the broker. In reality, these roles can be played by different entities. See [roles in the MyBit network SDK](https://developer.mybit.io/network/#roles). 
 

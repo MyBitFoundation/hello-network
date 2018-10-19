@@ -1,4 +1,4 @@
-# Set platform owner
+# Set a platform owner
 
 ## Who is the platform owner and does he do?
 
@@ -26,7 +26,7 @@ Assign the first address in the array to be the platformOwner address.
 const [platformOwner, operatorAddress] = accounts
 ```
 
-
+Under the hood, setting up the platform involves interacting with `network.js` and the APIs to interact with MyBit SDK contracts.
 
 ###  {#set-the-operator}
 

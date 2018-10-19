@@ -1,27 +1,81 @@
-# Create asset crowdsale
+# Create an asset crowdsale
+
+## What is an asset crowdsale?
+
+In our "hello world" example, creating an asset crowdsale is the equivalent of setting up an account where everyone can deposit funds to later finance the asset. A crowdsale has a set of terms defined at its start such as: 
+
+* Crowdsale duration
+* Funding required to be raised
+* Operator responsible for delivering asset
+* Account \(i.e. address\) to receive deposits
+
+## Starting a crowdsale for ~~coffees~~
+
+To initiate the crowdsale, our application sets up an asynchronous `function startCrowdsale()` . Our application uses MyBit APIs and node.js network.js library to interact with the local instance of MyBit smart contracts deployed on the local blockchain.  We use await syntax to interact asynchronously with the chain.
+
+Within our function our application will generate the asset ID, add an account \(i.e. token address\) associated with the asset and then actually create the asset including the terms for its funding. 
+
+### Create asset ID variable 
+
+```javascript
+    var assetID;
+```
+
+### Generate an asset ID
+
+Assign ID variable and call the API to generate an asset id by passing the operator address, funding goal, the operator id and the asset URI. 
+
+```javascript
+var id = await api.generateAssetID(operatorAddress, 70000000000000000,
+      operatorID, "CoffeeRun");
+```
+
+### Get asset crowdsale address
+
+Creates a variable `token address` representing the asset account \(i.e. address\) and calls the API to get the asset address by passing the above mentioned variable `id` \(i.e. Asset ID\). 
+
+```javascript
+var tokenAddress = await api.getAssetAddress(id);
+```
+
+### Approve burn
+
+```javascript
+if (tokenAddress == '0x0000000000000000000000000000000000000000') {
+      await Network.approveBurn(operatorAddress);
+```
+
+### Create asset and set asset crowdsale terms
+
+```javascript
+  var response = await Network.createAsset({
+    assetURI: "CoffeeRun",
+    operatorID: operatorID,
+    fundingLength: 1000,
+    amountToRaise: 70000000000000000, //about $20 CAD
+    brokerPercent: 0,
+    broker: operatorAddress //operator is also broker
+  });
+  
+```
+
+
+
+```javascript
+    return response;
+```
+
+Alternatively, in case an asset crowdsale has already been initiated, our application will return the following message:
+
+```javascript
+'Crowdsale already started'
+```
+
+
 
 ## 
 
-## 
 
-## Getting Super Powers
-
-Becoming a super hero is a fairly straight forward process:
-
-```
-$ give me super-powers
-```
-
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
-
-Once you're strong enough, save the world:
-
-```
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
 
 
 
