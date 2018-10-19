@@ -47,24 +47,127 @@ console.log('Crowdsale already finished!');
 
 ### Fund asset and issue dividends
 
-This `fundCoffee()` function provides a live example end to end of an investment crowdsale in our coffee machine asset by two investors. The console prints out each stage of the execution with the associated result. It provides a series of get functions connecting to MyBit network to obtain the state of funding progress, investors' accounts and operators accounts. 
+This `fundCoffee()` function provides a live example end to end of an investment crowdsale in our coffee machine asset by two investors. The console prints out each stage of the execution with the associated result. It provides a series of get functions connecting to MyBit network to obtain the state of funding progress, investors' accounts and operators accounts before and after dividend distribution.
 
-Examples: 
+#### Examples: 
 
+{% tabs %}
+{% tab title="First Tab" %}
+Set operator
 
+```javascript
+operatorID = await setOperator();
+    console.log('Operator ID: ', operatorID);
+```
+
+Start crowdsale
+
+```javascript
+    var response = await startCrowdsale();
+```
+
+Get time left to fund in the crowdsale
+
+```javascript
+var timeleft = await Network.getFundingTimeLeft(assetID);
+console.log('Time left: ', timeleft);
+```
+
+Get crwodsale funding goal
+
+```javascript
+var fundingGoal = await Network.getFundingGoal(assetID);
+console.log('Funding goal: ', fundingGoal);
+```
+
+Two investors contribute to asset crowdsale
+
+```javascript
+await contribute(accounts[3], 30000000000000000);
+```
+
+```javascript
+await contribute(accounts[4], 40000000000000000);
+```
+
+Operator address balance **before** investments 
+
+```javascript
+console.log('Operator ether before: ', await web3.eth.getBalance(
+      operatorAddress));
+```
+
+Operator address balance **after** investments
+
+```javascript
+console.log('Operator ether after: ', await web3.eth.getBalance(
+  operatorAddress));
+```
+{% endtab %}
+
+{% tab title="Second Tab" %}
+
+{% endtab %}
+{% endtabs %}
+
+Set operator
+
+```javascript
+operatorID = await setOperator();
+    console.log('Operator ID: ', operatorID);
+```
+
+Start crowdsale
+
+```javascript
+    var response = await startCrowdsale();
+```
+
+Get time left to fund in the crowdsale
+
+```javascript
+var timeleft = await Network.getFundingTimeLeft(assetID);
+console.log('Time left: ', timeleft);
+```
+
+Get crwodsale funding goal
+
+```javascript
+var fundingGoal = await Network.getFundingGoal(assetID);
+console.log('Funding goal: ', fundingGoal);
+```
+
+Two investors contribute to asset crowdsale
+
+```javascript
+await contribute(accounts[3], 30000000000000000);
+```
+
+```javascript
+await contribute(accounts[4], 40000000000000000);
+```
+
+Operator address balance **before** investments 
+
+```javascript
+console.log('Operator ether before: ', await web3.eth.getBalance(
+      operatorAddress));
+```
+
+Operator address balance **after** investments
+
+```javascript
+console.log('Operator ether after: ', await web3.eth.getBalance(
+  operatorAddress));
+```
+
+**Issue Dividends**
 
 One of the most important asynchronous calls relates to issuance of dividends to investors from the operator address: 
 
 ```javascript
 await Network.issueDividends(assetID, operatorAddress, 10000000000000000);
-
 console.log('Dividends Issued...');
-await token.withdraw({
-  from: accounts[3]
-});
-await token.withdraw({
-  from: accounts[4]
-});
 ```
 
 And the subsequent confirmation of dividends received by taking the balance from investors' accounts:
