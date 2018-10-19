@@ -53,7 +53,7 @@ If the operator is not set, it will add a new operator to the platform, with an 
       );
 ```
 
-The application will also make sure the operator accepts to receive payments ether.
+The application will also make sure the operator accepts to receive payments in ether.
 
 ```javascript
     await Network.acceptEther(id, operatorAddress);
