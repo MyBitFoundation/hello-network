@@ -2,7 +2,7 @@
 
 The platform owner is the entity responsible for running the distributed wealth application using MyBit protocol. In reality, the platform owner is responsible for adding operators to the platform and setting high level upgrades and changes to the platform. 
 
-In our "hello world" example, we basically set the address of the platform owner and use it to add an operator to the platform. 
+In our "hello world" example, we basically set the address of the platform owner and use it to [add an operator](https://developer.mybit.io/hello-network/setoperator) to the platform. 
 
 For more information on platform owners, see [roles in the MyBit network SDK](https://developer.mybit.io/network/#roles).
 
