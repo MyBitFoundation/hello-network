@@ -14,7 +14,7 @@ Set a `const` to get a list of accounts controlled by the node. It uses the Web3
 const accounts = await web3.eth.getAccounts()
 ```
 
-### Assign an account to an platform owner {#assign-an-account-to-an-operator}
+### Assign an account to a platform owner {#assign-an-account-to-an-operator}
 
 Assign the first address in the array to be the platformOwner address. 
 

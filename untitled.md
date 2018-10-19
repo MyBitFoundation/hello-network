@@ -59,7 +59,7 @@ The application will also make sure the operator accepts to receive payments in 
     await Network.acceptEther(id, operatorAddress);
 ```
 
-Only the application  returns the set ID value for the operator in the platform. 
+Only then the application  returns the set ID value for the operator in the platform. 
 
 ```javascript
     return id;
