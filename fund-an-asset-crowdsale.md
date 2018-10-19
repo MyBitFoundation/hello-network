@@ -47,3 +47,32 @@ console.log('Crowdsale already finished!');
 
 ### Fund asset and issue dividends
 
+This `fundCoffee()` function provides a live example end to end of an investment crowdsale in our coffee machine asset by two investors. The console prints out each stage of the execution with the associated result. It provides a series of get functions connecting to MyBit network to obtain the state of funding progress, investors' accounts and operators accounts. 
+
+Examples: 
+
+
+
+One of the most important asynchronous calls relates to issuance of dividends to investors from the operator address: 
+
+```javascript
+await Network.issueDividends(assetID, operatorAddress, 10000000000000000);
+
+console.log('Dividends Issued...');
+await token.withdraw({
+  from: accounts[3]
+});
+await token.withdraw({
+  from: accounts[4]
+});
+```
+
+And the subsequent confirmation of dividends received by taking the balance from investors' accounts:
+
+```javascript
+console.log('Investor 1 ether after: ', await web3.eth.getBalance(
+  accounts[3]));
+console.log('Investor 2 ether after: ', await web3.eth.getBalance(
+  accounts[4]));
+```
+
