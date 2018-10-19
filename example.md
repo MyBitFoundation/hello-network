@@ -2,6 +2,8 @@
 
 In this session we will cover in detail the execution of function `fundCoffee()` of our "hello world" application which outputs the final result in the terminal console. 
 
+### Add operator and start crowdsale
+
 **setOperator \(\) returns \(operatorID\)**
 
 Pass as addOperator with operatorAddress, operatorURI, platformOnwer and get back the address of the operator.
@@ -141,6 +143,8 @@ console.log('Operator ether before: ', await web3.eth.getBalance(
   operatorAddress));
 ```
 
+### Asset funding
+
 **contribute\(account, amount\) returns \(string, amount\)** 
 
 Pass the investor addresses and the asset investment amont.  getFundingProgress on asset \(see above\) after each investor contribution.
@@ -237,7 +241,7 @@ console.log('Investor 2 ether after: ', await web3.eth.getBalance(
 
 ### Output on terminal
 
-The final result of our "hello world" should look like this: 
+The final result of our "hello world" to fund our coffee machine should look like this: 
 
 ![](.gitbook/assets/screen-shot-2018-10-18-at-4.34.54-pm.png)
 
