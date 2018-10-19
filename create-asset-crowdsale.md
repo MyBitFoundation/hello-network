@@ -15,12 +15,6 @@ To initiate the crowdsale, our application sets up an asynchronous `function sta
 
 Within our function our application will generate the asset ID, add an account \(i.e. token address\) associated with the asset and then actually create the asset including the terms for its funding. 
 
-### Create asset ID variable 
-
-```javascript
-    var assetID;
-```
-
 ### Generate an asset ID
 
 Assign ID variable and call the API to generate an asset id by passing the operator address, funding goal, the operator id and the asset URI. 
@@ -47,7 +41,7 @@ if (tokenAddress == '0x0000000000000000000000000000000000000000') {
       await Network.approveBurn(operatorAddress);
 ```
 
-Then, 
+Then, the application will set a variable `response` and pass a `createAsset()` function and object with the following asset crowdsale terms as parameters in the object to **network.js**. 
 
 ```javascript
   var response = await Network.createAsset({
@@ -60,7 +54,7 @@ Then,
   });  
 ```
 
-
+It will return a object response, representing the start of the start crowdsale. 
 
 ```javascript
     return response;
