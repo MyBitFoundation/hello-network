@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Hello World Tutorial](README.md)
-* [Set up MyBit Chain](set-up-mybit-chain.md)
+* [Set up MyBit Chain](undefined.md)
 * [Set up MyBit network.js](set-up-mybit-network.js.md)
 * [Set a platform owner](set-platform-owner.md)
 * [Set an operator](untitled.md)
@@ -9,4 +9,9 @@
 * [Fund an asset crowdsale](fund-an-asset-crowdsale.md)
 * [End to end example](example.md)
 * [Untitled](untitled-2.md)
+
+## Network.js
+
+* [Untitled](https-developer.mybit.io-web/untitled-1.md)
+* [MyBitChain](https://developer.mybit.io/chain/)
 
