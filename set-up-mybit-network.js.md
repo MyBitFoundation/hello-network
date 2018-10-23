@@ -28,7 +28,7 @@ To instantiate network.js MyBit require you to specify a web3 provider. Web3.js 
 
 There are two ways to instantiate a web3 provider, directly or from the browser's window object. 
 
- In our "hello world" we are using a direct instantiation as we run network.js in local blockchain. 
+ In our "hello world" we are using a direct instantiation as we run network.js with a local `mybit-network` blockchain. 
 
 **Instantiating the web3 provider directly**
 
@@ -49,6 +49,8 @@ We then use web3 `const` to get a list ethereum accounts for the operator and pl
 ```javascript
 const accounts = await web3.eth.getAccounts();
 ```
+
+{% page-ref page="set-platform-owner.md" %}
 
 #### **Pulling the web3 provider off the browser's window object**
 
