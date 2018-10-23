@@ -10,7 +10,7 @@ For more information on platform owners, see [roles in the MyBit network SDK](ht
 
 ## Setting the platform owner
 
-### Get list of accounts  {#get-list-of-accounts}
+### Get list of accounts  <a id="get-list-of-accounts"></a>
 
 Set a `const` to get a list of accounts controlled by the node. It uses the Web3 API to return an array of ethereum addresses.
 
@@ -18,7 +18,7 @@ Set a `const` to get a list of accounts controlled by the node. It uses the Web3
 const accounts = await web3.eth.getAccounts()
 ```
 
-### Assign an account to a platform owner {#assign-an-account-to-an-operator}
+### Assign an account to a platform owner <a id="assign-an-account-to-an-operator"></a>
 
 Assign the first address in the array to be the platformOwner address. 
 
@@ -28,7 +28,7 @@ const [platformOwner, operatorAddress] = accounts
 
 Under the hood, setting up the platform involves interacting with `network.js` and the APIs to interact with MyBit SDK contracts.
 
-###  {#set-the-operator}
+###  <a id="set-the-operator"></a>
 
 
 
