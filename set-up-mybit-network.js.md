@@ -6,7 +6,9 @@ A node.js library for interacting with the MyBit Network SDK. It mirrors our Jav
 
 ## Installing Network.js
 
-In our "hello world", network.js is directly installed as a dependent component. To run other examples, install npm package first:  
+In our "hello world", network.js is directly installed as a dependent component of our node.js project `hello-network`. 
+
+To run other examples, install npm package first:  
 
 ```text
 npm i @mybit/network.js
@@ -67,7 +69,9 @@ For more information on web3.js follow [here](https://web3js.readthedocs.io/en/1
 
 **Diving in**
 
-\*\*\*\*
+At this point, you should have understood how to run your local blockchain \(@mybit/chain\) and install, import and instantiate network.js \(@mybit/network.js\) in your node.js project. Our "hello world" has both as dependencies already.
+
+You're now ready to dive into the actual "hello world" functions to create and fund your first asset crowdsale. 
 
 ## **More information**
 
