@@ -26,7 +26,7 @@ const Network = require('@mybit/network.js');
 
 To instantiate network.js MyBit require you to specify a web3 provider. Web3.js is a library with a series modules designed for the ethereum ecosytem. 
 
-There are two ways to instantiate a web3 provider, directly or on from the browser's window object. 
+There are two ways to instantiate a web3 provider, directly or from the browser's window object. 
 
  In our "hello world" we are using a direct instantiation as we run network.js in local blockchain. 
 
