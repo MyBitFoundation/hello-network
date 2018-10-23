@@ -8,5 +8,4 @@
 * [Create an asset crowdsale](create-asset-crowdsale.md)
 * [Fund an asset crowdsale](fund-an-asset-crowdsale.md)
 * [End to end example](example.md)
-* [Untitled](untitled-2.md)
 
