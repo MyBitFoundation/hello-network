@@ -10,8 +10,3 @@
 * [End to end example](example.md)
 * [Untitled](untitled-2.md)
 
-## Network.js
-
-* [Untitled](https-developer.mybit.io-web/untitled-1.md)
-* [MyBitChain](https://developer.mybit.io/chain/)
-
