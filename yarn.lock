@@ -2,23 +2,18 @@
 # yarn lockfile v1
 
 
-"@mybit/chain@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@mybit/chain/-/chain-0.1.6.tgz#40a56c7c99b8327b2008f342dc33301b7fabd010"
-  integrity sha512-YFqJzLPFsjfGMMT2NL+gtn3PzYqxZYpY4f2BuOiCI2Yn6mEAOfI17Q6VM/nzwmPAk5CQV64n3HV5Xu4LJj/XdQ==
-
-"@mybit/chain@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@mybit/chain/-/chain-0.1.7.tgz#136db9f5c12b03b3d50cbf638fac3395dc6b6e10"
-  integrity sha512-yUEEfIglUs6AvzgtIJCTPxVz/Qvk46YkM1lXXDVv54876b1NRP2NG1fX0jUshW903GA7SpLblrzaX3K9JvLTBw==
+"@mybit/chain@^0.1.8", "@mybit/chain@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@mybit/chain/-/chain-0.1.9.tgz#4d8e69ad9eb38da0cc1f3e3a8f3070c4904acff1"
+  integrity sha512-A9fAPTiCKDeDHanG9TRVZk7aeMgwNdx5ZSXIi8c8au+/h1mOjTC/LmVoUCvZh7W8ycTwDJAH2ehwf8r7QKZ8mw==
   dependencies:
     child_process "^1.0.2"
     ganache-cli "^6.1.8"
 
-"@mybit/contracts@^0.1.6":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@mybit/contracts/-/contracts-0.1.8.tgz#5f2d867003a86dd6e772040b126e8a6cd9b8727e"
-  integrity sha512-VvHttuZYBsgskaHPW63qYvo9Lhg+YY9UFvJJNAL8C5JX2ObohPmU1nQTB/x+UdmlH1MbsQ08K2f6WC5zSlOSPw==
+"@mybit/contracts@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@mybit/contracts/-/contracts-0.1.9.tgz#92d72d693b57ba19cd502a6511ae4aa39dd53b75"
+  integrity sha512-RBXcngga0UiPTlN8xu/PFa4yANxT8YZ+M8/dkuWPi1wZ/byRHbcNHLeOr9UrI0/CtLZeAtPcfbN0f2oEmjPPWg==
   dependencies:
     bignumber.js "^7.2.1"
     coveralls "^3.0.2"
@@ -27,13 +22,13 @@
     solc "^0.4.24"
     truffle "^4.1.14"
 
-"@mybit/network.js@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@mybit/network.js/-/network.js-0.0.2.tgz#5f0f6b5df8cb1bbabe6287b3b9b4484ea49362a3"
-  integrity sha512-zT42x1i/6x6NJxRTQ8Yi8+YzNCcNIxm++1Jkm/llTS2On3b97m2S3uXNBPa9o3T+XGsvmUfT3UsO6IMs86J1ng==
+"@mybit/network.js@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@mybit/network.js/-/network.js-0.0.6.tgz#de9a3ca96685298e19231541a24dd94af49005af"
+  integrity sha512-oI0hNOitgVpEACOn94pAfQOzZKPv6UNC+vYLNHkR2Xhr8ZTYU9dioVak/sATC9qgM4EcDMqs572bpXLt0vJgJQ==
   dependencies:
-    "@mybit/chain" "^0.1.6"
-    "@mybit/contracts" "^0.1.6"
+    "@mybit/chain" "^0.1.9"
+    "@mybit/contracts" "^0.1.9"
     truffle-contract "^3.0.6"
     web3 "^1.0.0-beta.36"
 
