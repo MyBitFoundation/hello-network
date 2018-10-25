@@ -5,48 +5,51 @@ var Web3 = require('web3');
 
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
+const decimals = 10**18;
 const accounts  = await web3.eth.getAccounts();
 const [ platformOwner, operatorAddress ] = accounts;
 var api = await Network.api();
-var operatorID;
-var assetID;
 
-async function setOperator(){
+async function setOperator(_uri, _address){
   //Check if operator is already set
-  var operatorURI = 'Mac the Operator';
-  var id = await api.generateOperatorID(operatorURI);
+  var id = await api.generateOperatorID(_uri);
   var currentAddress = await api.getOperatorAddress(id);
   if(currentAddress == '0x0000000000000000000000000000000000000000'){
     //If not set
     id = await Network.addOperator(
-      operatorAddress,
-      operatorURI,
+      _address,
+      _uri,
       platformOwner
     );
 
-    await Network.acceptEther(id, operatorAddress);
+    await Network.acceptEther(id, _address);
   } else {
     console.log('Operator already set')
   }
+  console.log('Operator ID: ', id);
 
   return id;
 }
 
-async function startCrowdsale(){
-  var id = await api.generateAssetID(operatorAddress, 70000000000000000, operatorID, "CoffeeRun");
+async function startCrowdsale(_uri, _goal, _timeInSeconds, _operatorID, _managerAddress, _percent, _fundingToken){
+  var id = await api.generateAssetID(_managerAddress, _goal, _operatorID, _uri);
   var tokenAddress = await api.getAssetAddress(id);
 
   if(tokenAddress == '0x0000000000000000000000000000000000000000'){
-    await Network.approveBurn(operatorAddress);
+    await Network.approveBurn(_managerAddress);
 
-    var response = await Network.createAsset({
-        assetURI: "CoffeeRun",
-        operatorID: operatorID,
-        fundingLength: 1000,
-        amountToRaise: 70000000000000000, //about $20 CAD
-        brokerPercent: 0,
-        broker: operatorAddress //operator is also broker
-    });
+    var parameters = {
+      assetURI: _uri,
+      operatorID: _operatorID,
+      fundingLength: _timeInSeconds,
+      amountToRaise: _goal,
+      brokerPercent: _percent,
+      broker: _managerAddress
+    }
+    if(_fundingToken != '' && _fundingToken != '0x0000000000000000000000000000000000000000'){
+      parameters.fundingToken = _fundingToken;
+    }
+    var response = await Network.createAsset({parameters});
   } else {
     var response = {};
     response._assetID = id;
@@ -57,60 +60,105 @@ async function startCrowdsale(){
   return response;
 }
 
-async function contribute(account, amount){
-  crowdsaleFinalized = await api.crowdsaleFinalized(assetID);
+async function contribute(_assetID, _amount, _account){
+  crowdsaleFinalized = await api.crowdsaleFinalized(_assetID);
   if(!crowdsaleFinalized){
-    await Network.approveBurn(account);
+    await Network.approveBurn(_account);
     await Network.fundAsset({
-        assetID: assetID,
-        amount: amount,
-        address: account
+        assetID: _assetID,
+        amount: _amount,
+        address: _account
     });
-    console.log('Contributed ', amount);
+    console.log('Contributed ', _amount);
   } else {
     console.log('Crowdsale already finished!');
   }
+}
 
+//Pass arrays to _addresses and _amounts
+async function generateAsset(_uri, _addresses, _amounts, _tradeable) {
+  var instance = await Network.assetGenerator();
+  var tx;
+  if(tradeable){
+    tx = await instance.createTradeableAsset(_uri, _addresses, _amounts);
+  } else {
+    tx = await instance.createAsset(_uri, _addresses, _amounts);
+  }
+  return tx.logs[0].args
+}
+
+async function sellAsset() {
+
+}
+
+async function buyAsset() {
+
+}
+
+async function createDividendToken(_uri, _account, _initialMinting, _fundingToken){
+  var parameters = {
+    uri: _uri,
+    owner: _account
+  }
+  if(_fundingToken != '' && _fundingToken != '0x0000000000000000000000000000000000000000'){
+    parameters.fundingToken = _fundingToken;
+  }
+  var tokenInstance = await Network.createDividendToken({parameters});
+  if(_initialMinting > 0){
+    await tokenInstance.mint(_owner, _initialMinting, {from: _owner});
+  }
+  return tokenInstance;
+}
+
+async function createERC20(_uri, _amount, _account){
+  var tokenInstance = await Network.createERC20Token({
+    uri: _uri,
+    total: _amount,
+    owner: _account
+  });
+  return tokenInstance;
+}
+
+async function getAssetParticipants(_assetID){
+  var results = {};
+  results.operator = await Network.getAssetOperator(_assetID);
+  results.manager = await Network.getAssetManager(_assetID);
+  results.investors = await Network.getAssetInvestors(_assetID);
+  return results;
+}
+
+async function displayCrowdsaleProgress(_assetID){
+  var fundingGoal = await Network.getFundingGoal(_assetID);
+  var fundingProgress = await Network.getFundingProgress(_assetID);
+  var timeleft = await Network.getFundingTimeLeft(_assetID);
+  var message = fundingProgress/decimals + " / " + fundingGoal/decimals + " funded, with " + timeleft + " seconds left to go.";
+  console.log(message);
 }
 
 async function fundCoffee(){
   //Setup operator (who will also be the broker)
-  operatorID = await setOperator();
-  console.log('Operator ID: ', operatorID);
-  //Start the crowdsale
-  var response = await startCrowdsale();
+  var operatorID = await setOperator("Mac the operator", operatorAddress);
 
-  assetID = response._assetID;
+  //Start the crowdsale
+  var response = await startCrowdsale("CoffeeRun", 70000000000000000, 86400, operatorID, operatorAddress, 0, '');
+
+  var assetID = response._assetID;
   console.log('Asset ID: ', assetID);
 
   var tokenAddress = response._tokenAddress;
   console.log('Token Address: ', tokenAddress);
-  
+
   token = await Network.dividendTokenETH(tokenAddress);
 
-  var timeleft = await Network.getFundingTimeLeft(assetID);
-  console.log('Time left: ', timeleft);
+  await displayCrowdsaleProgress(assetID);
 
-  var fundingGoal = await Network.getFundingGoal(assetID);
-  console.log('Funding goal: ', fundingGoal);
-
-  var fundingProgress = await Network.getFundingProgress(assetID);
-  console.log('Funding progress: ', fundingProgress);
-
-  var operator = await Network.getAssetOperator(assetID);
-  console.log('Asset operator: ', operator);
-
-  var manager = await Network.getAssetManager(assetID);
-  console.log('Asset manager: ', manager);
-
-  var investors = await Network.getAssetInvestors(assetID);
-  console.log('Asset investors: ', investors);
-
-  //await Network.issueDividends(assetID, operatorAddress, 1000000000000000);
+  var participants = await getAssetParticipants(assetID);
+  console.log('Asset Participants: ', participants);
 
   var crowdsales = await Network.getOpenCrowdsales();
   console.log('Open crowdsales: ', crowdsales);
 
+/*
   var operatorAssets = await Network.getAssetsByOperator(operatorAddress);
   console.log('Assets by operator: ', operatorAssets);
 
@@ -119,16 +167,17 @@ async function fundCoffee(){
 
   var managerAssets = await Network.getAssetsByManager(operatorAddress);
   console.log('Assets by manager: ', managerAssets);
+*/
 
   //Check operator's funds before
   console.log('Operator ether before: ', await web3.eth.getBalance(operatorAddress));
   //Two users contribute
-  await contribute(accounts[3], 30000000000000000);
+  await contribute(assetID, 30000000000000000, accounts[2]);
 
   var fundingProgress = await Network.getFundingProgress(assetID);
   console.log('Funding progress: ', fundingProgress);
 
-  await contribute(accounts[4], 40000000000000000);
+  await contribute(assetID, 40000000000000000, accounts[3]);
 
   var fundingProgress = await Network.getFundingProgress(assetID);
   console.log('Funding progress: ', fundingProgress);
