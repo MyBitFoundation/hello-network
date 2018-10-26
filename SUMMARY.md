@@ -8,7 +8,7 @@
 * [Set up MyBit Chain](getting-started/set-up-mybit-chain.md)
 * [Set up MyBit network.js](getting-started/set-up-mybit-network.js.md)
 * [Set a platform owner](getting-started/set-platform-owner.md)
-* [Set an operator](getting-started/untitled.md)
+* [Set an operator](getting-started/set-operator.md)
 
 ## Digital Assets
 

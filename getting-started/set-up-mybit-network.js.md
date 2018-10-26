@@ -54,7 +54,7 @@ const accounts = await web3.eth.getAccounts();
 
 {% page-ref page="set-platform-owner.md" %}
 
-{% page-ref page="untitled.md" %}
+{% page-ref page="set-operator.md" %}
 
 #### **Pulling the web3 provider off the browser's window object**
 
