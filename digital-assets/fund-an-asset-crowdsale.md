@@ -6,7 +6,7 @@ Our "hello world" application will decompose the funding in two asynchronous fun
 
 For full detail on `fundCoffee()` function see example.
 
-{% page-ref page="example.md" %}
+{% page-ref page="../example.md" %}
 
 ### Contribute to an asset crowdsale
 

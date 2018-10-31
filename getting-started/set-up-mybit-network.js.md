@@ -54,14 +54,14 @@ const accounts = await web3.eth.getAccounts();
 
 {% page-ref page="set-platform-owner.md" %}
 
-{% page-ref page="untitled.md" %}
+{% page-ref page="set-operator.md" %}
 
 #### **Pulling the web3 provider off the browser's window object**
 
-Alternatively**,** if you decided to have the user interacting with your application via a web3 wallet \(e.g., MetaMask, Coinbase Wallet, etc.\), you could have pulled the web3 provider from the browser's window object and pass that to the account `const`such as: 
+Alternatively**,** if you decided to have the user interacting with your application via a web3 wallet \(e.g., MetaMask, Coinbase Wallet, etc.\), you could have pulled the web3 provider from the browser's window object and instantiate a new web3 object using said provider: 
 
 ```javascript
-const web3 = window.web3.currentProvider;
+const web3 = new Web3(window.web3.currentProvider);
 const accounts = await web3.eth.getAccounts();
 ```
 
