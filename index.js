@@ -1,5 +1,5 @@
 var Network = require('@mybit/network.js');
-var Chain = require('@mybit/chain');
+var Chain = require('@mybit/network-chain');
 var Web3 = require('web3');
 
 (async function() {
@@ -350,7 +350,7 @@ async function fundMiningRig(){
   var investor2DaiAfter = await dai.balanceOf(accounts[5]);
   var investor3DaiAfter = await dai.balanceOf(accounts[6]);
 
-  var mangerDiff = Number(managerDaiAfter - managerDaiBefore);
+  var managerDiff = Number(managerDaiAfter - managerDaiBefore);
   var investor1Diff = Number(investor1DaiAfter - investor1DaiBefore);
   var investor2Diff = Number(investor2DaiAfter - investor2DaiBefore);
   var investor3Diff = Number(investor3DaiAfter - investor3DaiBefore);
