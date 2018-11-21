@@ -2,23 +2,10 @@
 # yarn lockfile v1
 
 
-"@mybit/chain@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@mybit/chain/-/chain-0.1.6.tgz#40a56c7c99b8327b2008f342dc33301b7fabd010"
-  integrity sha512-YFqJzLPFsjfGMMT2NL+gtn3PzYqxZYpY4f2BuOiCI2Yn6mEAOfI17Q6VM/nzwmPAk5CQV64n3HV5Xu4LJj/XdQ==
-
-"@mybit/chain@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@mybit/chain/-/chain-0.1.7.tgz#136db9f5c12b03b3d50cbf638fac3395dc6b6e10"
-  integrity sha512-yUEEfIglUs6AvzgtIJCTPxVz/Qvk46YkM1lXXDVv54876b1NRP2NG1fX0jUshW903GA7SpLblrzaX3K9JvLTBw==
-  dependencies:
-    child_process "^1.0.2"
-    ganache-cli "^6.1.8"
-
-"@mybit/contracts@^0.1.6":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@mybit/contracts/-/contracts-0.1.8.tgz#5f2d867003a86dd6e772040b126e8a6cd9b8727e"
-  integrity sha512-VvHttuZYBsgskaHPW63qYvo9Lhg+YY9UFvJJNAL8C5JX2ObohPmU1nQTB/x+UdmlH1MbsQ08K2f6WC5zSlOSPw==
+"@mybit/contracts@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@mybit/contracts/-/contracts-0.1.9.tgz#92d72d693b57ba19cd502a6511ae4aa39dd53b75"
+  integrity sha512-RBXcngga0UiPTlN8xu/PFa4yANxT8YZ+M8/dkuWPi1wZ/byRHbcNHLeOr9UrI0/CtLZeAtPcfbN0f2oEmjPPWg==
   dependencies:
     bignumber.js "^7.2.1"
     coveralls "^3.0.2"
@@ -27,13 +14,21 @@
     solc "^0.4.24"
     truffle "^4.1.14"
 
-"@mybit/network.js@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@mybit/network.js/-/network.js-0.0.2.tgz#5f0f6b5df8cb1bbabe6287b3b9b4484ea49362a3"
-  integrity sha512-zT42x1i/6x6NJxRTQ8Yi8+YzNCcNIxm++1Jkm/llTS2On3b97m2S3uXNBPa9o3T+XGsvmUfT3UsO6IMs86J1ng==
+"@mybit/network-chain@^0.1.10", "@mybit/network-chain@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@mybit/network-chain/-/network-chain-0.1.11.tgz#38069a79e404f073b980fbca1e5690563057d97d"
+  integrity sha512-5/PDdJ2MtdmhoGOuFls9jZYFqCESzQ2Wjwd6cE8Z5bN7oXCaQbi9efECdsN6KxWBDOGWN9H1dRkv9LPG7JHowg==
   dependencies:
-    "@mybit/chain" "^0.1.6"
-    "@mybit/contracts" "^0.1.6"
+    child_process "^1.0.2"
+    ganache-cli "^6.1.8"
+
+"@mybit/network.js@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@mybit/network.js/-/network.js-0.0.9.tgz#25e1f82bc845f96e2102ccb383d547fe97380640"
+  integrity sha512-dLe5enEvxX1oH/nlU53F0oJ4uTVWi998oF05UnSyxW1sIihYsrOsxCe+FdWYXj0O4DfGP46mbIjfal5je1UEWg==
+  dependencies:
+    "@mybit/contracts" "^0.1.9"
+    "@mybit/network-chain" "^0.1.11"
     truffle-contract "^3.0.6"
     web3 "^1.0.0-beta.36"
 
